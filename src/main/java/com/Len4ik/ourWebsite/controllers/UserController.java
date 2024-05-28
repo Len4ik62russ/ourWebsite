@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
@@ -23,6 +23,7 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         User user = userService.getUserById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        //TODO добавить обработку ошибки с информативным текстом ответа пользователю, если user не найден  по id
         return ResponseEntity.ok().body(user);
     }
 
