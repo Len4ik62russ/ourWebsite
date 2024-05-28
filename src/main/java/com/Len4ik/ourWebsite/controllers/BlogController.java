@@ -3,12 +3,11 @@ package com.Len4ik.ourWebsite.controllers;
 import com.Len4ik.ourWebsite.models.Post;
 import com.Len4ik.ourWebsite.repo.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -75,8 +74,24 @@ public class BlogController {
     @PostMapping("/blog/{id}/remove")
     public String blogPostDelete(@PathVariable(value = "id") long id, Model model) {
         Post post = postRepository.findById(id).orElseThrow();
-
         postRepository.delete(post);
         return "redirect:/blog";
     }
+//
+//    @PutMapping("/{id}/edit")
+//    public ResponseEntity<?> blogPostUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons, @RequestParam String full_text) {
+//        Post post = postRepository.findById(id).orElseThrow();
+//        post.setTitle(title);
+//        post.setAnons(anons);
+//        post.setFull_text(full_text);
+//        postRepository.save(post);
+//        return ResponseEntity.ok().build();
+//    }
+//
+//    @DeleteMapping("/{id}/remove")
+//    public ResponseEntity<?> blogPostDelete(@PathVariable(value = "id") long id) {
+//        Post post = postRepository.findById(id).orElseThrow();
+//        postRepository.delete(post);
+//        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//    }
 }
