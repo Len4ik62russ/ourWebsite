@@ -2,12 +2,14 @@ package com.Len4ik.ourWebsite.controllers;
 
 import com.Len4ik.ourWebsite.models.User;
 import com.Len4ik.ourWebsite.service.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
