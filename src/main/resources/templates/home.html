@@ -9,6 +9,26 @@
 <header th:insert="blocks/header :: header"></header>
 
 <main>
+    <div>
+        <body>
+        <div id="auth">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div id="content">
+            <h2>Weather</h2>
+            <input type="text" id="city" placeholder="Enter city name">
+            <button id="getWeather">Get Weather</button>
+            <pre id="weatherData"></pre>
+            <button id="logout">Logout</button>
+        </div>
+        <script src="/static/js/script.js"></script>
+        </body>
+    </div>
 
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
@@ -21,6 +41,7 @@
                 </p>
             </div>
         </div>
+
     </section>
 
     <div class="album py-5 bg-body-tertiary">
