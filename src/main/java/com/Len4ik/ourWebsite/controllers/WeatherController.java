@@ -16,6 +16,7 @@ public class WeatherController {
 
     @GetMapping("/api/weather")
     public String getWeather(@RequestParam String city) {
-        return weatherService.getWeather(city);
+        String cityLondon = "London";
+        return weatherService.getWeather(cityLondon);
     }
 }

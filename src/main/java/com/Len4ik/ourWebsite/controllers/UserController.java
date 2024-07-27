@@ -11,7 +11,7 @@ import java.util.List;
 
 @SecurityRequirement(name = "bearerAuth")
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
