@@ -17,9 +17,8 @@ public class WeatherService {
         this.restTemplate = restTemplate;
     }
 
-    public String getWeather(String city) {
+    public ResponseEntity<String> getWeather(String city) {
         String url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
-        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        return response.getBody();
+       return restTemplate.getForEntity(url, String.class);
     }
 }
