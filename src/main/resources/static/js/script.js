@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentDiv = document.getElementById('content');
     const weatherDataContainer = document.getElementById('weatherData');
     const cityInput = document.getElementById('city');
+    const tokenPre = document.getElementById('token-pre');
 
     let token = '';
 
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const data = await response.json();
                 token = data.token;
+                tokenPre.innerText = token
                 authDiv.style.display = 'none';
                 contentDiv.style.display = 'block';
             } else {

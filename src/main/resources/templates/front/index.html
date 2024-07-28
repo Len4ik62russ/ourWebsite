@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="main-page">
+        <header class="header">
+            <div class="header__title">
+                <p>learnITheap</p>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link active">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="pages/about.html" class="header__nav-link">About</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="pages/blogs.html" class="header__nav-link">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+            <section>content</section>
+            <aside>
+                <div class="login">
+                    <form class="login-form">
+                        <h2>Login</h2>
+                        <div>
+                            <input id="username" type="text" placeholder="username" class="mt10">
+                            <input id="password" type="password" placeholder="password" class="mt10">
+                        </div>
+                        <button class="mt10" id="login-btn">login</button>
+                    </form>
+                </div>
+                <div class="weather">
+                    <h2>Weather</h2>
+                    <input type="text" id="city-input" placeholder="Enter city name">
+                    <button id="get-weather-btn">Get Weather</button>
+                    <pre id="weather-output"></pre>
+
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="/static/js/index.js"></script>
+</body>
+</html>
