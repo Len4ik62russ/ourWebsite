@@ -4,29 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <!--    <link rel="stylesheet" href="../styles/styles.css">-->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header__nav-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header__nav-item {
+            margin-left: 20px;
+        }
+
+        .header__nav-link {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .active {
+            color: rgb(134, 12, 79);
+        }
+
+        .mt10 {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="main-page">
-        <header class="header">
-            <div class="header__title">
-                <p>learnITheap</p>
-            </div>
-            <nav class="header__nav">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item">
-                        <a href="../index.html" class="header__nav-link">Home</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-link active">About</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="blogs.html" class="header__nav-link">Blog</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <div class="content"></div>
-    </div>
+<div class="main-page">
+    <header class="header">
+        <div class="header__title">
+            <p>learnITheap</p>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__nav-item">
+                    <a href="/" class="header__nav-link active">Home</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/about" class="header__nav-link">About</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/blogs" class="header__nav-link">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content"></div>
+</div>
 </body>
 </html>

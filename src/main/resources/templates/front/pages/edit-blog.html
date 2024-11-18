@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--    <link rel="stylesheet" href="../styles/styles.css">-->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header__nav-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header__nav-item {
+            margin-left: 20px;
+        }
+
+        .header__nav-link {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .active {
+            color: rgb(134, 12, 79);
+        }
+
+        .mt10 {
+            margin-top: 10px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .edit-blog {
+            width: 80%;
+        }
+
+        .edit-blog-form {
+            width: 100%;
+            padding: 30px;
+            text-align: center;
+            background-color: darkgray;
+        }
+
+        .edit-title, .edit-anons, .edit-body {
+            margin: 10px 0;
+        }
+
+        label {
+            font-size: 25px;
+        }
+
+        #edit-title, #edit-anons, #edit-body {
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            padding: 8px;
+            height: 20px;
+            font-size: 20px;
+        }
+
+        #edit-body {
+            height: 180px;
+            resize: none;
+            overflow-y: scroll;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="main-page">
+    <header class="header">
+        <div class="header__title">
+            <p>learnITheap</p>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__nav-item">
+                    <a href="/" class="header__nav-link active">Home</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/about" class="header__nav-link">About</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/blogs" class="header__nav-link">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="edit-blog">
+            <p>Edit blog id: <b id="blog-id"></b></p>
+            <div class="edit-blog-form">
+                <div class="edit-title">
+                    <label for="edit-title">Title:</label>
+                    <input id="edit-title">
+                </div>
+                <div class="edit-anons">
+                    <label for="edit-anons">Anons:</label>
+                    <input id="edit-anons">
+                </div>
+                <div class="edit-body">
+                    <label for="edit-body">Text</label>
+                    <textarea id="edit-body"></textarea>
+                </div>
+                <button id="save-edit-blog">Save</button>
+                <button id="cancel-edit-blog">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/js/edit-blog.js"></script>
+</body>
+</html>

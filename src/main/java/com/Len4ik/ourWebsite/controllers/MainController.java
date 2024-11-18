@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
-
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("title", "Main page");
@@ -17,34 +16,68 @@ public class MainController {
 
     @GetMapping("/about")
     public String about(Model model) {
-        model.addAttribute("title", "About us");
-        model.addAttribute("link", "To the main page");
-        model.addAttribute("href", "/");
+        model.addAttribute("title", "About");
+//        model.addAttribute("link", "To the main page");
+//        model.addAttribute("href", "/");
 
-        return "about";
+        return "front/pages/about";
     }
 
-    @GetMapping("/contact")
-    public String contact(Model model) {
-        return "contact";
+    @GetMapping("/blogs")
+    public String blogs(Model model) {
+        model.addAttribute("title", "Blogs");
+//        model.addAttribute("link", "To the main page");
+//        model.addAttribute("href", "/");
+
+        return "front/pages/blogs";
     }
 
-    @GetMapping("/some-info/details")
-    public String someInfo(Model model) {
-        return "some-info-details";
-    }
+    @GetMapping("/edit-blog")
+        public String edit_blog(Model model) {
+//        model.addAttribute("title", "About us");
+//        model.addAttribute("link", "To the main page");
+//        model.addAttribute("href", "/");
 
-    // Название метода может быть любым
-// Главное URL адрес отслеживать корректный
-    @GetMapping("/query/1234/test")
-    public String testQuery(Model model) {
-        return "test"; // Название может быть любым
+            return "front/pages/edit-blog";
     }
-
-    @GetMapping("/contacts")
-    public String contacts(Model model) {
-        return "contacts";
-    }
+//
+//    @GetMapping("/")
+//    public String home(Model model) {
+//        model.addAttribute("title", "Main page");
+//        //return "home";
+//        return "front/index";
+//    }
+//
+//    @GetMapping("/about")
+//    public String about(Model model) {
+//        model.addAttribute("title", "About us");
+//        model.addAttribute("link", "To the main page");
+//        model.addAttribute("href", "/");
+//
+//        return "about";
+//    }
+//
+//    @GetMapping("/contact")
+//    public String contact(Model model) {
+//        return "contact";
+//    }
+//
+//    @GetMapping("/some-info/details")
+//    public String someInfo(Model model) {
+//        return "some-info-details";
+//    }
+//
+//    // Название метода может быть любым
+//// Главное URL адрес отслеживать корректный
+//    @GetMapping("/query/1234/test")
+//    public String testQuery(Model model) {
+//        return "test"; // Название может быть любым
+//    }
+//
+//    @GetMapping("/contacts")
+//    public String contacts(Model model) {
+//        return "contacts";
+//    }
 
 }
 

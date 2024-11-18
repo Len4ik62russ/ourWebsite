@@ -4,52 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="shortcut icon" href="$FAVICON$" type="image/x-icon">
+
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .header__nav-list {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header__nav-item {
+            margin-left: 20px;
+        }
+
+        .header__nav-link {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .active {
+            color: rgb(134, 12, 79);
+        }
+
+        .mt10 {
+            margin-top: 10px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+        }
+
+        .spinner {
+            margin: 100px auto;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            text-align: center;
+
+            -webkit-animation: sk-rotate 2.0s infinite linear;
+            animation: sk-rotate 2.0s infinite linear;
+        }
+
+        .dot1, .dot2 {
+            width: 60%;
+            height: 60%;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            background-color: #333;
+            border-radius: 100%;
+
+            -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+            animation: sk-bounce 2.0s infinite ease-in-out;
+        }
+
+        .dot2 {
+            top: auto;
+            bottom: 0;
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        @-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+        @keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+        @-webkit-keyframes sk-bounce {
+            0%, 100% { -webkit-transform: scale(0.0) }
+            50% { -webkit-transform: scale(1.0) }
+        }
+
+        @keyframes sk-bounce {
+            0%, 100% {
+                transform: scale(0.0);
+                -webkit-transform: scale(0.0);
+            } 50% {
+                  transform: scale(1.0);
+                  -webkit-transform: scale(1.0);
+              }
+        }
+
+        .weather-data__img {
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            width:90%;
+            padding:15px;
+            border-radius:15px;
+            border:0;
+            box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+        }
+
+        button {
+            cursor: pointer;
+            border: 1px solid #cecece;
+            background: #f6f6f6;
+            box-shadow: inset 0px 20px 20px #ffffff;
+            border-radius: 8px;
+            padding: 8px 14px;
+            width: 120px;
+        }
+        button:hover {
+            box-shadow: inset 0px -20px 20px #ffffff;
+        }
+        button:active {
+            margin-top: 1px;
+            margin-bottom: -1px;
+            zoom: 1;
+        }
+        button:focus
+        {
+            outline:none;
+        }
+
+
+    </style>
 </head>
 <body>
-    <div class="main-page">
-        <header class="header">
-            <div class="header__title">
-                <p>learnITheap</p>
+<div class="main-page">
+    <header class="header">
+        <div class="header__title">
+            <p>learnITheap</p>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__nav-item">
+                    <a href="/" class="header__nav-link active">Home</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/about" class="header__nav-link">About</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/blogs" class="header__nav-link">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <section>content</section>
+        <aside>
+            <div class="login">
+                <form class="login-form">
+                    <h2>Login</h2>
+                    <div>
+                        <input id="username" type="text" placeholder="username" class="mt10">
+                        <input id="password" type="password" placeholder="password" class="mt10">
+                    </div>
+                    <button class="mt10" id="login-btn">login</button>
+                </form>
             </div>
-            <nav class="header__nav">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item">
-                        <a href="index.html" class="header__nav-link active">Home</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="pages/about.html" class="header__nav-link">About</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="pages/blogs.html" class="header__nav-link">Blog</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <div class="content">
-            <section>content</section>
-            <aside>
-                <div class="login">
-                    <form class="login-form">
-                        <h2>Login</h2>
-                        <div>
-                            <input id="username" type="text" placeholder="username" class="mt10">
-                            <input id="password" type="password" placeholder="password" class="mt10">
-                        </div>
-                        <button class="mt10" id="login-btn">login</button>
-                    </form>
+            <div class="weather">
+                <div class="spinner">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
                 </div>
                 <div class="weather">
-                    <h2>Weather</h2>
-                    <input type="text" id="city-input" placeholder="Enter city name">
-                    <button id="get-weather-btn">Get Weather</button>
-                    <pre id="weather-output"></pre>
+                    <div class="weather-data">
+                        <h2 id="current-city"></h2>
+                        <div class="weather-data__img">
+                            <img src="" id="weather-img" alt="">
+                            <h1 style="display: inline-block" >
+                                <span id="weather-temperature"></span>
+                            </h1>
 
+                        </div>
+                        <div>
+                            <p id="weather-description"></p>
+                        </div>
+                    </div>
                 </div>
-            </aside>
-        </div>
+                <input type="text" id="city-input" placeholder="Enter city name">
+                <button id="get-weather-btn">Get Weather</button>
+
+            </div>
+        </aside>
     </div>
-    <script src="/static/js/index.js"></script>
+</div>
+<script src="/static/js/index.js"></script>
 </body>
 </html>

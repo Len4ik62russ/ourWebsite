@@ -10,6 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.List;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,18 +24,32 @@ public class BlogController {
     @Autowired
     private PostRepository postRepository;
 
-    @GetMapping
-    public String blogMain(Model model) {
-        Iterable<Post> posts = postRepository.findAll();
-        model.addAttribute("posts", posts);
-        return "blog-main";
+//    @GetMapping
+//    public String blogMain(Model model) {
+//        Iterable<Post> posts = postRepository.findAll();
+//        model.addAttribute("posts", posts);
+//        return "blog-main";
+//    }
+
+//    @GetMapping("/blog-main")
+//    @ResponseBody
+//    public String blogMain(Model model) {
+//        Iterable<Post> posts = postRepository.findAll();
+//        model.addAttribute("posts", posts);
+//        return posts;
+//    }
+
+    @GetMapping("")
+    @ResponseBody
+    public Iterable<Post> blogMain() {
+        return postRepository.findAll();
     }
 
     @PostMapping
-    public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model) {
+    public void blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model) {
         Post post = new Post(title, anons, full_text);
         postRepository.save(post);
-        return "redirect:/blog";
+        // return "redirect:/blog";
     }
 
     @GetMapping("/{id}")

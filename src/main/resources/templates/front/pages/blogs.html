@@ -4,30 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <!--    <link rel="stylesheet" href="../styles/styles.css">-->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header__nav-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header__nav-item {
+            margin-left: 20px;
+        }
+
+        .header__nav-link {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .active {
+            color: rgb(134, 12, 79);
+        }
+
+        .mt10 {
+            margin-top: 10px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+        }
+
+        .blogs {
+            width: 70%;
+        }
+
+        .blog {
+            margin-top: 10px;
+            border: 2px solid gray;
+            border-radius: 5px;
+            background-color: rgb(241, 241, 241);
+        }
+
+        .blog__title {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 15px;
+        }
+
+        .blog__title:hover {
+            .delete-btn {
+                display: block;
+            }
+        }
+
+        .blog__title-btns {
+            display: flex;
+            width: 40px;
+            justify-content: space-between;
+        }
+
+
+        .delete-btn {
+            display: none;
+            cursor: pointer;
+        }
+
+        .delete-btn > img {
+            width: 14px;
+            height: 14px;
+        }
+
+        .blog__anons, .blog__body {
+            padding: 10px;
+        }
+
+        .details-btn {
+            color: blue;
+            cursor: pointer;
+        }
+
+
+
+        .new-blog {
+            width: 100px;
+            height: 50px;
+            bottom: 60px;
+
+            background-color: #97979a;
+            position: fixed;
+            left: 0;
+            display: flex;
+            border-radius: 0 25px 25px 0;
+        }
+
+        .new-blog > button {
+            position: absolute;
+            background: none;
+            border: none;
+            right: 7px;
+            width: 40px;
+            height: 40px;
+            top: 5px;
+            cursor: pointer;
+        }
+
+        .new-blog > button > img {
+            width: 150%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .add-new-blog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.7);
+            /*display: flex;*/
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add-new-blog .new-blog-form {
+            background-color: #5191d6;
+            width: 60%;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .new-title, .new-anons, .new-body {
+            margin: 10px 0;
+        }
+
+        label {
+            font-size: 25px;
+        }
+
+        #new-title, #new-anons, #new-body {
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            padding: 8px;
+            height: 20px;
+            font-size: 20px;
+        }
+
+        #new-body {
+            height: 180px;
+            resize: none;
+            overflow-y: scroll;
+        }
+
+
+
+    </style>
 </head>
 <body>
-    <div class="main-page">
-        <header class="header">
-            <div class="header__title">
-                <p>learnITheap</p>
-            </div>
-            <nav class="header__nav">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item">
-                        <a href="../index.html" class="header__nav-link">Home</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="about.html" class="header__nav-link">About</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-link active">Blog</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <div class="content"></div>
+<div class="main-page">
+    <header class="header">
+        <div class="header__title">
+            <p>learnITheap</p>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__nav-item">
+                    <a href="/" class="header__nav-link active">Home</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/about" class="header__nav-link">About</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="/blogs" class="header__nav-link">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="blogs"></div>
     </div>
-    <script src="../js/blogs.js"></script>
+</div>
+
+
+<div class="new-blog">
+    <button id="add-new-blog-form">
+        <img src="https://static.thenounproject.com/png/1017610-200.png" alt="Add new blog">
+    </button>
+</div>
+
+
+<div class="add-new-blog">
+    <div class="new-blog-form">
+        <h1>New blog</h1>
+        
+        <div class="new-title">
+            <label for="new-title">Title:</label>
+            <input id="new-title">
+        </div>
+        <div class="new-anons">
+            <label for="new-anons">Anons:</label>
+            <input id="new-anons">
+        </div>
+        <div class="new-body">
+            <label for="new-body">Text</label>
+            <textarea id="new-body"></textarea>
+        </div>
+        <button id="save-new-blog">Save</button>
+        <button id="cancel-new-blog">Cancel</button>
+    </div>
+
+</div>
+
+
+<script src="/static/js/blogs.js"></script>
 </body>
 </html>
